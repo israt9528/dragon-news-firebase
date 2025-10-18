@@ -1,6 +1,7 @@
-import React from "react";
+import React, { use } from "react";
 import logo from "../../assets/logo.png";
 import { format } from "date-fns";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
   return (
