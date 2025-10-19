@@ -9,6 +9,8 @@ const Register = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
 
     console.log(email, password);
 
@@ -16,10 +18,12 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
         setUser(user);
-        console.log(user);
+        alert("Registered Done!");
       })
       .catch((error) => {
-        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode, errorMessage);
       });
   };
 
@@ -35,12 +39,15 @@ const Register = () => {
               <label className="label">Your Name</label>
               <input
                 type="text"
+                name="name"
                 className="input"
                 placeholder="Enter your name"
+                required
               />
               <label className="label">Photo URL</label>
               <input
                 type="text"
+                name="photoURL"
                 className="input"
                 placeholder="Enter your photo url"
               />
@@ -50,6 +57,7 @@ const Register = () => {
                 name="email"
                 className="input"
                 placeholder="Enter your Email"
+                required
               />
               <label className="label">Password</label>
               <input
@@ -57,6 +65,7 @@ const Register = () => {
                 name="password"
                 className="input"
                 placeholder="Enter your Password"
+                required
               />
               <label className="label mt-3">
                 <input type="checkbox" className="checkbox" />
